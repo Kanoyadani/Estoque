@@ -22,15 +22,13 @@ public class Main {
 
     System.out.println("Produto Cadastrado");
 
-    sc1.close();
-
   }
 
 
 
   public static void estoque(String[] name,Double[] valor,int[] qtd, int p){
   for (int i = 0; i <= p;i++){
-     System.out.println("Produto:"+ name[i] + "Valor: " + valor[i] + "Quantidade: " + qtd[i]);
+     System.out.println("Produto: "+ name[i] + "\nValor: " + valor[i] + "\nQuantidade: " + qtd[i]);
   }
 
   }
@@ -38,16 +36,18 @@ public class Main {
 
   public static void menu(String[] name,Double[] valor,int[] qtd, int p) {
     Scanner sc1 = new Scanner(System.in);
-    int escolha = sc1.nextInt();
-    while (escolha != 4) {
-      
+    int escolha;
+    do {
+      escolha = sc1.nextInt(); 
       switch (escolha) {
         case 1:
           cadastro(name,valor,qtd,p);
+          
           break;
          
         case 2:
          estoque(name,valor,qtd,p);
+         escolha =sc1.nextInt(); 
          break;
 
 
@@ -60,7 +60,7 @@ public class Main {
 
       }
 
-    }
+    }while(escolha != 4);
 
     sc1.close();
   }
@@ -76,7 +76,7 @@ public class Main {
     Double[] valor  = new Double[44];
     int[] qtd       = new int[44];
     int p = 0;
-
+    
     menu(name,valor,qtd,p);
 
 
